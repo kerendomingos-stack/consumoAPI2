@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from 'axios';
 
 export default function MovieTe() {
   const [movies, setMovies] = useState([]);

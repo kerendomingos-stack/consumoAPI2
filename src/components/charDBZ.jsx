@@ -1,39 +1,22 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import useFetchAPI from "../hooks/useFetchAPI";
 
 export default function CharDBZ (){
-const [DBZ, setCharDBZ] = useState({});
-const [error, setError] = useState(false);
-const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-    const fechtCharDBZ = async () => {
-      setLoading(true);
-      try {
-        const response = await axios(
+const {ret: DBZ, loading, error } = useFetchAPI(
           "https://dragonball-api.com/api/characters/33"
         );
-        
-        setCharDBZ(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error( "Erro ao carregar API", error);
-        setLoading(false);
-        setError(true);
-      }
-    }
-    fechtCharDBZ();
-  }, [])
-   if (loading) {
-    return <div>Loading</div>;
-  }
-  if (error) {
-    return <div>Ocorreu um erro inesperado</div>;
-  }
+
+   if (loading) return <div>Loading</div>;
+  if (error) return <div>Ocorreu um erro inesperado</div>;
+  
   return (
-<div>
-    <img src={DBZ.image} className="base" height="280" alt=""
-    style={{ marginTop: "50px" }}/>
+<div className="dbz-container">
+      <h3>Personagem DBZ</h3>
+      {/* Agora o React sabe exatamente quem é a variável DBZ */}
+      <p>Nome: {DBZ?.name}</p>
+      <p>Raça: {DBZ?.race}</p>
+      {DBZ?.image && (
+        <img src={DBZ.image} alt={DBZ?.name} style={{ width: "150px" }} />
+      )}
     </div>
-  )
+  );
 }
