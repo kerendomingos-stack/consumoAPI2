@@ -533,28 +533,124 @@ input[type="text"]:focus {
 /* =========================================
    9. ANIMAÇÕES
    ========================================= */
-@keyframes flutuar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.trainer-container {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
-@keyframes brilho {
-  0%, 100% { background-position: 0 0, 100% 0; }
-  50% { background-position: 0 0, 0% 0; }
+.trainer-card {
+  width: 100%;
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  border: 2px solid #8b5cf6;
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.25);
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+.tema-escuro .trainer-card {
+  background: rgba(30, 41, 59, 0.85);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
+.tema-claro .trainer-card {
+  background: #ffffff;
+}
+
+.trainer-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 4px solid #facc15;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+}
+
+.trainer-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.trainer-info p {
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tema-claro .trainer-info p {
+  background: #f1f5f9;
+}
+
+.pokebolas-secao {
+  width: 100%;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pokebolas-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-pokebola {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #ffffff !important;
+  font-weight: bold;
+  box-shadow: 0 6px 15px rgba(239, 68, 68, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.btn-pokebola:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.btn-pokebola img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.pokemon-page-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.topo-voltar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-voltar {
+  text-decoration: none;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  color: #ffffff !important;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
 /* =========================================
